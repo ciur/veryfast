@@ -1,0 +1,9 @@
+.idea/
+.envrc
+.venv
+*.pyc
+__pycache__
+*.swp
+*.log
+*.sqlite3
+db/
