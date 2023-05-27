@@ -8,6 +8,8 @@ app = FastAPI()
 
 logger = logging.getLogger(__name__)
 
+logger.info(f"My name was set to '{__name__}'")
+
 
 @app.get("/")
 async def root_endpoint():
