@@ -1,9 +1,14 @@
 version: 1
 disable_existing_loggers: false
 
+formatters:
+  simple:
+    format: "[%(asctime)s] [%(levelname)s] [%(name)s:%(funcName)s]: %(message)s"
+
 handlers:
   console:
     class: logging.StreamHandler
+    formatter: simple
 
 root:
   handlers: [console]
@@ -11,4 +16,4 @@ root:
 loggers:
   veryfast:
     propagate: true
-    level: INFO
+    level: DEBUG
