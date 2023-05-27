@@ -3,11 +3,11 @@ disable_existing_loggers: false
 
 formatters:
   simple:
-    format: "[%(asctime)s] [%(levelname)s] [%(name)s:%(funcName)s]: %(message)s"
+    format: "[%(name)s:%(funcName)s]: %(message)s"
 
 handlers:
   console:
-    class: logging.StreamHandler
+    class: rich.logging.RichHandler
     formatter: simple
 
 root:
