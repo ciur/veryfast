@@ -1,0 +1,14 @@
+version: 1
+disable_existing_loggers: false
+
+handlers:
+  console:
+    class: logging.StreamHandler
+
+root:
+  handlers: [console]
+
+loggers:
+  veryfast:
+    propagate: true
+    level: INFO
