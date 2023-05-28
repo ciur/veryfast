@@ -13,7 +13,6 @@ pyyaml = "^6.0"
 rich = "^13.3.5"
 sqlalchemy = "^2.0.15"
 
-
 [tool.poetry.group.test.dependencies]
 pytest = "^7.3.1"
 
