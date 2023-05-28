@@ -36,5 +36,5 @@ def test_engine_2():
         result = conn.execute(
             text("SELECT x, y FROM some_table"),
         )
-        for row in result:
-            logger.info(f"x: {row.x}  y: {row.y}")
+        for x, y in result:
+            logger.info(f"x: {x}  y: {y}")
