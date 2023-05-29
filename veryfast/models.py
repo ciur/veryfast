@@ -15,12 +15,12 @@ class User(Base):
     name: Mapped[str] = mapped_column(String(30))
     fullname: Mapped[Optional[str]]
 
-    addresses: Mapped[List["Address"]] = relationship(back_populates="user")
+    # addresses: Mapped[List["Address"]] = relationship(back_populates="user")
 
     def __repr__(self) -> str:
         return " ".join([
             f"User(id={self.id!r}, name={self.name!r},",
-            "fullname={self.fullname!r})"
+            f"fullname={self.fullname!r})"
         ])
 
 
@@ -53,20 +53,20 @@ class CoreUser(Base):
     is_active: Mapped[bool] = mapped_column(default=False)
     first_name: Mapped[str] = mapped_column(String(150), default='')
     last_name: Mapped[str] = mapped_column(String(150), default='')
-    home_folder = relationship(
-        "Node",
-        primaryjoin="and_(User.id==Node.user_id, "
-        " Node.title=='.home')",
-        uselist=False,
-        viewonly = True,
-    )
-    inbox_folder = relationship(
-        "Node",
-        primaryjoin="and_(User.id==Node.user_id, "
-        " Node.title=='.inbox')",
-        viewonly=True,
-        uselist=False
-    )
+    #home_folder = relationship(
+    #    "Node",
+    #    primaryjoin="and_(User.id==Node.user_id, "
+    #    " Node.title=='.home')",
+    #    uselist=False,
+    #    viewonly = True,
+    #)
+    #inbox_folder = relationship(
+    #    "Node",
+    #    primaryjoin="and_(User.id==Node.user_id, "
+    #    " Node.title=='.inbox')",
+    #    viewonly=True,
+    #    uselist=False
+    #)
     date_joined: Mapped[datetime.datetime] = mapped_column(
         default=datetime.datetime.utcnow
     )
@@ -91,11 +91,11 @@ class Node(Base):
     updated_at: Mapped[datetime.datetime] = mapped_column(
         default=datetime.datetime.utcnow
     )
-    user_id: Mapped["User"] = mapped_column(
-        String(32),
-        ForeignKey("core_user.id")
-    )
-    user = relationship("User", foreign_keys=[user_id])
+    #user_id: Mapped["User"] = mapped_column(
+    #    String(32),
+    #    ForeignKey("core_user.id")
+    #)
+    # user = relationship("User", foreign_keys=[user_id])
     parent_id = mapped_column(
         "parent_id",
         String(32),
