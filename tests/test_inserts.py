@@ -1,5 +1,5 @@
 import logging
-from sqlalchemy import insert
+from sqlalchemy import insert, select
 
 from veryfast.models import User
 
@@ -19,3 +19,8 @@ def test_insert1(db_connection):
             {"name": "patric", "fullname": "Patrick Star"}
         ]
     )
+
+    user_table = User.__table__
+    statement = select(user_table).where(user_table.c.name == "spongebob")
+    logger.info(f"Performing now {statement}")
+    db_connection.execute(statement)
